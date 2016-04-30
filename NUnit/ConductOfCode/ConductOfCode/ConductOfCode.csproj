@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="HelloWorld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Given_HelloWorld\When_GetMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
