@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+</head>
+<body>
+    <h1>Stack</h1>
+    <pre>
+        In order to support last-in-first-out (LIFO) operations
+        As an developer
+        I want to use a stack
+    </pre>
+
+    <h2>Empty</h2>
+    <p concordion:execute="GivenAnEmptyStack()">Given an empty stack</p>
+    <p concordion:assert-true="IsEmpty()">Then it has no elements</p>
+    <p concordion:assert-true="ShouldThrowWhenPop()">And it throws an exception when calling pop</p>
+    <p concordion:assert-true="ShouldThrowWhenPeek()">And it throws an exception when calling peek</p>
+
+    <h2>Not empty</h2>
+    <p concordion:execute="GivenANonEmptyStack()">Given a non empty stack</p>
+    <p concordion:execute="#result = Peek()">When calling peek</p>
+    <p concordion:assert-true="#result == TopElement">Then it returns the top element</p>
+    <p concordion:assert-true="Contains(#result)">But it does not remove the top element</p>
+    <p concordion:execute="#result = Pop()">When calling pop</p>
+    <p concordion:assert-true="#result == TopElement">Then it returns the top element</p>
+    <p concordion:assert-true="DoesNotContain(#result)">And it removes the top element</p>
+</body>
+</html>
