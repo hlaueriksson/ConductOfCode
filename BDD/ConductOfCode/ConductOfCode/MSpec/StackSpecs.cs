@@ -1,10 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Machine.Specifications;
 
 namespace ConductOfCode.MSpec
 {
-    using System.Collections.Generic;
-
     public class StackSpecs
     {
         [Subject(typeof(Stack<>))]
