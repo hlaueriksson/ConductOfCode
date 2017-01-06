@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using LightBDD;
 using NUnit.Framework;
+[assembly: Debuggable(true, true)] // to render steps properly when executed in Release mode
 
 namespace ConductOfCode.LightBDD
 {
