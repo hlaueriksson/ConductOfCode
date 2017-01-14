@@ -41,6 +41,10 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Should, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SpecResults, Version=0.1.0.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecResults.0.1.0.6\lib\net40\SpecResults.dll</HintPath>
       <Private>True</Private>
