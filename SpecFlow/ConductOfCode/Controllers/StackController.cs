@@ -11,6 +11,15 @@ namespace ConductOfCode.Controllers
     {
         private static Stack<Item> Stack = new Stack<Item>();
 
+        [HttpPost("[action]")]
+        [SwaggerResponse(typeof(void))]
+        public IActionResult Clear()
+        {
+            Stack.Clear();
+
+            return NoContent();
+        }
+
         [HttpGet("[action]")]
         [SwaggerResponse("200", typeof(Item))]
         [SwaggerResponse("400", typeof(Error))]

@@ -24,6 +24,43 @@ namespace ConductOfCode.Specs.Clients
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task ClearAsync()
+        {
+            return ClearAsync(System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task ClearAsync(System.Threading.CancellationToken cancellationToken)
+        {
+            var url_ = string.Format("{0}/{1}", BaseUrl, "api/Stack/Clear");
+    
+            using (var client_ = new System.Net.Http.HttpClient())
+            {
+                var request_ = new System.Net.Http.HttpRequestMessage();
+                PrepareRequest(client_, ref url_);
+                var content_ = new System.Net.Http.StringContent(string.Empty);
+                request_.Content = content_;
+                request_.Method = new System.Net.Http.HttpMethod("POST");
+                request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseContentRead, cancellationToken).ConfigureAwait(false);
+                ProcessResponse(client_, response_);
+    
+                var responseData_ = await response_.Content.ReadAsByteArrayAsync().ConfigureAwait(false); 
+                var status_ = ((int)response_.StatusCode).ToString();
+    
+                if (status_ == "204") 
+                {
+                    return;
+                }
+                else
+                if (status_ != "200" && status_ != "204")
+                    throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, null);
+            }
+        }
+    
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<Item> PeekAsync()
         {
             return PeekAsync(System.Threading.CancellationToken.None);
