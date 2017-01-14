@@ -33,6 +33,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpecResults, Version=0.1.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecResults.0.1.0.6\lib\net40\SpecResults.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpecResults.Json, Version=0.1.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecResults.Json.0.1.0.6\lib\net40\SpecResults.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpecResults.WebApp, Version=0.1.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecResults.WebApp.0.1.0.5\lib\net40\SpecResults.WebApp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
