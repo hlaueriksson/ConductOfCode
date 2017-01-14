@@ -7,7 +7,7 @@
     <ProjectGuid>{31B63271-82B5-450D-AD89-7D795F74288B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConductOfCode.Specs.Api</RootNamespace>
+    <RootNamespace>ConductOfCode.Specs</RootNamespace>
     <AssemblyName>ConductOfCode.Specs.Api</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
