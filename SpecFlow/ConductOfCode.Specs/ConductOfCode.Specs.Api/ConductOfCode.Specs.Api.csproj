@@ -83,9 +83,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ConductOfCode.Specs\Stack.feature.cs">
+      <Link>Stack.feature.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stack.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\ConductOfCode.Specs\Stack.feature">
+      <Link>Stack.feature</Link>
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Stack.feature.cs</LastGenOutput>
+    </None>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
