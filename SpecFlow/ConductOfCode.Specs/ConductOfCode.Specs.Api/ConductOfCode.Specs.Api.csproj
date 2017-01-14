@@ -90,6 +90,7 @@
       <DependentUpon>Stack.feature</DependentUpon>
     </Compile>
     <Compile Include="BaseSteps.cs" />
+    <Compile Include="Clients\StackClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StackSteps.cs" />
   </ItemGroup>
