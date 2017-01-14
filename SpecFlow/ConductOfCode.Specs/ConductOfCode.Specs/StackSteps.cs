@@ -7,7 +7,7 @@ using Xunit;
 namespace ConductOfCode.Specs
 {
     [Binding]
-    public class StackSteps
+    public class StackSteps : BaseSteps
     {
         private Stack<int> stack;
 

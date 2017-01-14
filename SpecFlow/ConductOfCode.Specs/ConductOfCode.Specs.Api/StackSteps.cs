@@ -4,7 +4,7 @@ using TechTalk.SpecFlow;
 namespace ConductOfCode.Specs
 {
     [Binding]
-    public class StackSteps
+    public class StackSteps : BaseSteps
     {
         [Given(@"an empty stack")]
         public void GivenAnEmptyStack()
