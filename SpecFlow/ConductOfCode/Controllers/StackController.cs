@@ -9,7 +9,12 @@ namespace ConductOfCode.Controllers
     [Route("api/[controller]")]
     public class StackController : Controller
     {
-        private static Stack<Item> Stack = new Stack<Item>();
+        private Stack<Item> Stack { get; set; }
+
+        public StackController(Stack<Item> stack)
+        {
+            Stack = stack;
+        }
 
         [HttpPost("[action]")]
         [SwaggerResponse(typeof(void))]

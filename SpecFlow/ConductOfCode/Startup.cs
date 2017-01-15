@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Reflection;
 using ConductOfCode.Controllers;
+using ConductOfCode.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -29,6 +31,8 @@ namespace ConductOfCode
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddSingleton<Stack<Item>>(new Stack<Item>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
