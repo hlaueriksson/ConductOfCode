@@ -17,20 +17,18 @@ namespace ConductOfCode.Specs
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class StackFeature : Xunit.IClassFixture<StackFeature.FixtureData>, System.IDisposable
+    [NUnit.Framework.TestFixtureAttribute()]
+    [NUnit.Framework.DescriptionAttribute("Stack")]
+    public partial class StackFeature
     {
         
-        private static TechTalk.SpecFlow.ITestRunner testRunner;
+        private TechTalk.SpecFlow.ITestRunner testRunner;
         
 #line 1 "Stack.feature"
 #line hidden
         
-        public StackFeature()
-        {
-            this.TestInitialize();
-        }
-        
-        public static void FeatureSetup()
+        [NUnit.Framework.TestFixtureSetUpAttribute()]
+        public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Stack", "\tIn order to support last-in-first-out (LIFO) operations\r\n\tAs an developer\r\n\tI wa" +
@@ -38,16 +36,19 @@ namespace ConductOfCode.Specs
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        public static void FeatureTearDown()
+        [NUnit.Framework.TestFixtureTearDownAttribute()]
+        public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
+        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
+        [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -63,18 +64,8 @@ namespace ConductOfCode.Specs
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SetFixture(StackFeature.FixtureData fixtureData)
-        {
-        }
-        
-        void System.IDisposable.Dispose()
-        {
-            this.ScenarioTearDown();
-        }
-        
-        [Xunit.FactAttribute(DisplayName="Empty stack")]
-        [Xunit.TraitAttribute("FeatureTitle", "Stack")]
-        [Xunit.TraitAttribute("Description", "Empty stack")]
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Empty stack")]
         public virtual void EmptyStack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Empty stack", ((string[])(null)));
@@ -92,9 +83,8 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Non empty stack")]
-        [Xunit.TraitAttribute("FeatureTitle", "Stack")]
-        [Xunit.TraitAttribute("Description", "Non empty stack")]
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Non empty stack")]
         public virtual void NonEmptyStack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Non empty stack", ((string[])(null)));
@@ -116,22 +106,6 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.And("it removes the top element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
-        }
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
-        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        public class FixtureData : System.IDisposable
-        {
-            
-            public FixtureData()
-            {
-                StackFeature.FeatureSetup();
-            }
-            
-            void System.IDisposable.Dispose()
-            {
-                StackFeature.FeatureTearDown();
-            }
         }
     }
 }
