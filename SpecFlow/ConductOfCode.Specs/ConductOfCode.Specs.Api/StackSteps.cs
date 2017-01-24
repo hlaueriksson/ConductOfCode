@@ -1,8 +1,8 @@
 ﻿using System;
 using ConductOfCode.Specs.Clients;
 using Should;
+using Should.Core.Assertions;
 using TechTalk.SpecFlow;
-using Xunit;
 
 namespace ConductOfCode.Specs
 {

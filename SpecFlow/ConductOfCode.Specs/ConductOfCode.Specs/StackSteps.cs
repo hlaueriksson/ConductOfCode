@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Should;
+using Should.Core.Assertions;
 using TechTalk.SpecFlow;
-using Xunit;
 
 namespace ConductOfCode.Specs
 {
