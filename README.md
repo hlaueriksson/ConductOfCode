@@ -11,3 +11,5 @@ The code for [BDD frameworks for .NET / C#](http://conductofcode.io/post/bdd-fra
 The code for [Entities and Value Objects in C# for DDD](http://conductofcode.io/post/entities-and-value-objects-in-csharp-for-ddd/): [DDD/ConductOfCode](/DDD/ConductOfCode)
 
 The code for [Reuse SpecFlow features to test both via API and browser](http://conductofcode.io/post/reuse-specflow-features-to-test-both-via-api-and-browser/): [SpecFlow](/SpecFlow)
+
+The code for [Automocking and the Dependency Inversion Principle](http://conductofcode.io/post/automocking-and-the-dependency-inversion-principle/): [Xunit](/Xunit)
