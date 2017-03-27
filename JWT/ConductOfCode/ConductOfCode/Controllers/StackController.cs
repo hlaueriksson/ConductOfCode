@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using ConductOfCode.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace ConductOfCode.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class StackController : Controller
     {

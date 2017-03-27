@@ -1,11 +1,13 @@
-﻿using ConductOfCode.Models;
+﻿using System.Collections.Generic;
+using ConductOfCode.Extensions;
+using ConductOfCode.Models;
+using ConductOfCode.Options;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
-using System.Collections.Generic;
 
 namespace ConductOfCode
 {
@@ -29,6 +31,9 @@ namespace ConductOfCode
             // Add framework services.
             services.AddMvc();
 
+            services.AddOptions();
+            services.Configure<TokenOptions>(Configuration.GetSection(nameof(TokenOptions)));
+
             services.AddSingleton(new Stack<Item>());
 
             services.AddSwaggerGen(c =>
@@ -48,6 +53,18 @@ namespace ConductOfCode
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ConductOfCode");
+            });
+
+            var options = Configuration.GetSection(nameof(TokenOptions)).Get<TokenOptions>();
+
+            app.UseJwtBearerAuthentication(new JwtBearerOptions
+            {
+                TokenValidationParameters =
+                {
+                    ValidAudience = options.Audience,
+                    ValidIssuer = options.Issuer,
+                    IssuerSigningKey = options.GetSymmetricSecurityKey()
+                }
             });
 
             app.UseMvc();
