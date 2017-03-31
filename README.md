@@ -12,4 +12,6 @@ The code for [Entities and Value Objects in C# for DDD](http://conductofcode.io/
 
 The code for [Reuse SpecFlow features to test both via API and browser](http://conductofcode.io/post/reuse-specflow-features-to-test-both-via-api-and-browser/): [SpecFlow](/SpecFlow)
 
-The code for [Automocking and the Dependency Inversion Principle](http://conductofcode.io/post/automocking-and-the-dependency-inversion-principle/): [Xunit](/Xunit)
+The code for [Automocking and the Dependency Inversion Principle](http://conductofcode.io/post/automocking-and-the-dependency-inversion-principle/): [Xunit/ConductOfCode](/Xunit/ConductOfCode)
+
+The code for [Secure and explore ASP.NET Core Web APIs](http://conductofcode.io/post/secure-and-explore-aspnet-core-web-apis/): [JWT](/JWT)
