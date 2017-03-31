@@ -2,9 +2,9 @@
     $(function () {
         var tokenUi = '<div class="input">' +
             '<h2>Authenticate</h2>' +
-            '<input placeholder="Audience" id="input_audience" name="audience" type="text" size="50">' +
-            '<input placeholder="Issuer" id="input_issuer" name="issuer" type="text" size="50">' +
-            '<input placeholder="Signing key" id="input_signing_key" name="signing_key" type="text" size="100">' +
+            '<input placeholder="Audience" id="input_audience" name="audience" type="text" size="70"><br />' +
+            '<input placeholder="Issuer" id="input_issuer" name="issuer" type="text" size="70"><br />' +
+            '<input placeholder="Signing key" id="input_signing_key" name="signing_key" type="text" size="70">' +
             '</div>';
         $(tokenUi).insertBefore("#resources_container");
 

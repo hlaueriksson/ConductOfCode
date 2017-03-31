@@ -31,10 +31,10 @@ namespace ConductOfCode
             // Add framework services.
             services.AddMvc();
 
+            services.AddSingleton(new Stack<Item>());
+
             services.AddOptions();
             services.Configure<TokenOptions>(Configuration.GetSection(nameof(TokenOptions)));
-
-            services.AddSingleton(new Stack<Item>());
 
             services.AddSwaggerGen(c =>
             {
@@ -48,17 +48,17 @@ namespace ConductOfCode
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseStaticFiles();
-
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ConductOfCode");
-                c.InjectOnCompleteJavaScript("/swagger-ui/authorization.js");
+                c.InjectOnCompleteJavaScript("/swagger-ui/authorization1.js");
                 //c.InjectOnCompleteJavaScript("https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"); // https://cdnjs.com/libraries/crypto-js
                 //c.InjectOnCompleteJavaScript("/swagger-ui/authorization2.js");
             });
+
+            app.UseStaticFiles();
 
             var options = Configuration.GetSection(nameof(TokenOptions)).Get<TokenOptions>();
 
