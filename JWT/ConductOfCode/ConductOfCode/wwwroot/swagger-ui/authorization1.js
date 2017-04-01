@@ -24,9 +24,7 @@
             dataType: "json",
             data: request,
             success: function (data) {
-                var token = data.access_token;
-
-                addAuthorization("Bearer " + token);
+                addAuthorization(data.token_type + " " + data.access_token);
             }
         });
     };
