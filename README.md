@@ -15,3 +15,5 @@ The code for [Reuse SpecFlow features to test both via API and browser](http://c
 The code for [Automocking and the Dependency Inversion Principle](http://conductofcode.io/post/automocking-and-the-dependency-inversion-principle/): [Xunit/ConductOfCode](/Xunit/ConductOfCode)
 
 The code for [Secure and explore ASP.NET Core Web APIs](http://conductofcode.io/post/secure-and-explore-aspnet-core-web-apis/): [JWT](/JWT)
+
+The code for [Easy Approach to Requirements Syntax and the segue to Behavior Driven Development](http://conductofcode.io/post/easy-approach-to-requirements-syntax-and-the-segue-to-behavior-driven-development/): [EARS/ConductOfCode](/EARS/ConductOfCode)
