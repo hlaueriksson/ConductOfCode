@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\swagger-ui\authorization1.js" />
-    <Content Include="wwwroot\swagger-ui\authorization2.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
@@ -22,6 +17,10 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\swagger-ui\authorization1.js" />
+    <None Include="wwwroot\swagger-ui\authorization2.js" />
   </ItemGroup>
 
 </Project>
