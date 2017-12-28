@@ -55,13 +55,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Json\Tests.cs" />
+    <Compile Include="Json\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerializationExtensions.cs" />
     <Compile Include="Models.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="BaseTests.cs" />
+    <Compile Include="Toml\Extensions.cs" />
+    <Compile Include="Toml\Tests.cs" />
+    <Compile Include="Xml\Extensions.cs" />
+    <Compile Include="Xml\Tests.cs" />
+    <Compile Include="Yaml\Extensions.cs" />
+    <Compile Include="Yaml\Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

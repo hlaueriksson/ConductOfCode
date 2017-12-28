@@ -37,8 +37,45 @@ namespace ConductOfCode
 
     public class Problem
     {
-        public Dictionary<Foo, Bar> Dictionary { get; set; }
+        public Dictionary<string, Bar> Dictionary { get; set; }
         public Tuple<Foo, Bar> Tuple { get; set; }
         public Uri Uri { get; set; }
+    }
+
+    // circular references
+
+    public class A
+    {
+        public int Id { get; set; }
+
+        public B B { get; set; }
+    }
+
+    public class B
+    {
+        public string Ref { get; set; }
+
+        public A A { get; set; }
+    }
+
+    // polymorphism
+
+    public class C
+    {
+        public D D { get; set; }
+    }
+
+    public abstract class D
+    {
+    }
+
+    public class D1 : D
+    {
+        public int Id { get; set; }
+    }
+
+    public class D2 : D
+    {
+        public string Ref { get; set; }
     }
 }
