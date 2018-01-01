@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
+using Ploeh.AutoFixture;
 
 namespace ConductOfCode.Toml
 {
@@ -21,25 +23,36 @@ namespace ConductOfCode.Toml
         }
 
         [Test]
-        public void Problem_()
+        public void Serialize_and_Deserialize_IDictionary()
         {
-            Console.WriteLine(Problem.ToToml());
-            Assert.Throws(
-                Is.TypeOf<InvalidOperationException>().And.Message.EndsWith("Only types with a parameterless constructor or an specialized creator can be created. Make sure the type has a parameterless constructor or a configuration with an corresponding creator is provided."),
-                () => Problem.ToToml().FromToml<Problem>());
-        }
+            var subject = Fixture.Create<Dictionary<string, Foo>>();
 
-        [Test, Ignore("Stack overflow exception occurred in test.Test run is aborted.")]
-        public void CircularReference()
-        {
-            Console.WriteLine(a.ToToml());
+            Assert.AreEqual(subject.ToToml(), subject.ToToml().FromToml<Dictionary<string, Foo>>().ToToml());
         }
 
         [Test]
-        public void Polymorphism()
+        public void Deserialize_parameterless_constructor_fails()
         {
-            Console.WriteLine(c.ToToml());
-            Assert.AreEqual(c.ToToml(), c.ToToml().FromToml<C>().ToToml());
+            var subject = Fixture.Create<Tuple<Foo, Bar>>();
+            var toml = subject.ToToml();
+
+            Assert.Throws(
+                Is.TypeOf<InvalidOperationException>().And.Message.Contains("Only types with a parameterless constructor or an specialized creator can be created."),
+                () => toml.FromToml<Tuple<Foo, Bar>>());
+        }
+
+        [Test, Ignore("Stack overflow exception occurred in test.Test run is aborted.")]
+        public void Serialize_circular_reference_fails()
+        {
+            a.ToToml();
+        }
+
+        [Test]
+        public void Serialize_polymorphism_fails()
+        {
+            Assert.Throws(
+                Is.TypeOf<InvalidOperationException>().And.Message.Contains("Only types with a parameterless constructor or an specialized creator can be created."),
+                () => c.ToToml().FromToml<C>());
         }
     }
 }

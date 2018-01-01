@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using NUnit.Framework;
+using Ploeh.AutoFixture;
 
 namespace ConductOfCode.Json
 {
@@ -13,6 +16,12 @@ namespace ConductOfCode.Json
         }
 
         [Test]
+        public void Serialize_with_no_indentation()
+        {
+            Console.WriteLine(Subject.ToJson(Formatting.None));
+        }
+
+        [Test]
         public void Deserialize()
         {
             var json = Subject.ToJson();
@@ -21,23 +30,35 @@ namespace ConductOfCode.Json
         }
 
         [Test]
-        public void Problem_()
+        public void Serialize_and_Deserialize_IDictionary()
         {
-            Console.WriteLine(Problem.ToJson());
-            Assert.AreEqual(Problem.ToJson(), Problem.ToJson().FromJson<Problem>().ToJson());
+            var subject = Fixture.Create<Dictionary<string, Foo>>();
+
+            Assert.AreEqual(subject.ToJson(), subject.ToJson().FromJson<Dictionary<string, Foo>>().ToJson());
         }
 
         [Test]
-        public void CircularReference()
+        public void Serialize_and_Deserialize_parameterless_constructor()
         {
-            Console.WriteLine(a.ToJson());
+            var subject = Fixture.Create<Tuple<Foo, Bar>>();
+
+            Assert.AreEqual(subject.ToJson(), subject.ToJson().FromJson<Tuple<Foo, Bar>>().ToJson());
         }
 
         [Test]
-        public void Polymorphism()
+        public void Serialize_circular_reference_fails()
         {
-            Console.WriteLine(c.ToJson());
-            Assert.AreEqual(c.ToJson(), c.ToJson().FromJson<C>().ToJson());
+            Assert.Throws(
+                Is.TypeOf<JsonSerializationException>().And.Message.StartsWith("Self referencing loop detected"),
+                () => a.ToJson());
+        }
+
+        [Test]
+        public void Serialize_polymorphism_fails()
+        {
+            Assert.Throws(
+                Is.TypeOf<JsonSerializationException>().And.Message.Contains("Type is an interface or abstract class and cannot be instantiated."),
+                () => c.ToJson().FromJson<C>());
         }
     }
 }

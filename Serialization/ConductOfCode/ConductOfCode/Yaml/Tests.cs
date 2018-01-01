@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
+using Ploeh.AutoFixture;
+using YamlDotNet.Core;
 
 namespace ConductOfCode.Yaml
 {
@@ -21,25 +24,39 @@ namespace ConductOfCode.Yaml
         }
 
         [Test]
-        public void Problem_()
+        public void Serialize_and_Deserialize_IDictionary()
         {
-            Console.WriteLine(Problem.ToYaml());
+            var subject = Fixture.Create<Dictionary<string, Foo>>();
+
+            Assert.AreEqual(subject.ToYaml(), subject.ToYaml().FromYaml<Dictionary<string, Foo>>().ToYaml());
+        }
+
+        [Test]
+        public void Deserialize_parameterless_constructor_fails()
+        {
+            var subject = Fixture.Create<Tuple<Foo, Bar>>();
+            var yaml = subject.ToYaml();
+
             Assert.Throws(
-                Is.TypeOf<YamlDotNet.Core.YamlException>().And.Message.EndsWith("Exception during deserialization"),
-                () => Problem.ToYaml().FromYaml<Problem>());
+                Is.TypeOf<YamlException>().And.InnerException.InnerException.Message.EqualTo("No parameterless constructor defined for this object."),
+                () => yaml.FromYaml<Tuple<Foo, Bar>>());
         }
 
         [Test]
-        public void CircularReference()
+        public void Serialize_and_Deserialize_circular_reference()
         {
-            Console.WriteLine(a.ToYaml());
+            var yaml = a.ToYaml();
+            Console.WriteLine(yaml);
+
+            Assert.AreEqual(yaml, yaml.FromYaml<A>().ToYaml());
         }
 
         [Test]
-        public void Polymorphism()
+        public void Serialize_polymorphism_fails()
         {
-            Console.WriteLine(c.ToYaml());
-            Assert.AreEqual(c.ToYaml(), c.ToYaml().FromYaml<C>().ToYaml());
+            Assert.Throws(
+                Is.TypeOf<YamlException>().And.InnerException.InnerException.Message.Contains("Cannot create an abstract class."),
+                () => c.ToYaml().FromYaml<C>());
         }
     }
 }

@@ -5,6 +5,7 @@ namespace ConductOfCode
 {
     public abstract class BaseTests
     {
+        protected Fixture Fixture;
         protected Subject Subject;
         protected Problem Problem;
         protected A a;
@@ -13,9 +14,9 @@ namespace ConductOfCode
         [SetUp]
         public void SetUp()
         {
-            var fixture = new Fixture();
-            Subject = fixture.Create<Subject>();
-            Problem = fixture.Create<Problem>();
+            Fixture = new Fixture();
+            Subject = Fixture.Create<Subject>();
+            Problem = Fixture.Create<Problem>();
 
             a = new A
             {
