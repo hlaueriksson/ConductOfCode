@@ -31,6 +31,16 @@ namespace ConductOfCode.Toml
         }
 
         [Test]
+        public void Deserialize_IDictionary_with_non_string_key()
+        {
+            var subject = Fixture.Create<Dictionary<int, Foo>>();
+
+            Assert.Throws(
+                Is.TypeOf<InvalidCastException>().And.Message.EqualTo("Unable to cast object of type 'System.Int32' to type 'System.String'."),
+                () => subject.ToToml().FromToml<Dictionary<int, Foo>>());
+        }
+
+        [Test]
         public void Deserialize_parameterless_constructor_fails()
         {
             var subject = Fixture.Create<Tuple<Foo, Bar>>();
@@ -44,7 +54,7 @@ namespace ConductOfCode.Toml
         [Test, Ignore("Stack overflow exception occurred in test.Test run is aborted.")]
         public void Serialize_circular_reference_fails()
         {
-            a.ToToml();
+            Parent.ToToml();
         }
 
         [Test]
@@ -52,7 +62,7 @@ namespace ConductOfCode.Toml
         {
             Assert.Throws(
                 Is.TypeOf<InvalidOperationException>().And.Message.Contains("Only types with a parameterless constructor or an specialized creator can be created."),
-                () => c.ToToml().FromToml<C>());
+                () => Geometry.ToToml().FromToml<Geometry>());
         }
     }
 }

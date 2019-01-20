@@ -7,29 +7,23 @@ namespace ConductOfCode
     {
         protected Fixture Fixture;
         protected Subject Subject;
-        protected Problem Problem;
-        protected A a;
-        protected C c;
+        protected Parent Parent;
+        protected Geometry Geometry;
 
         [SetUp]
         public void SetUp()
         {
             Fixture = new Fixture();
             Subject = Fixture.Create<Subject>();
-            Problem = Fixture.Create<Problem>();
 
-            a = new A
-            {
-                Id = 1,
-                B = new B { Ref = "2" }
-            };
-            a.B.A = a;
+            Parent = new Parent();
+            Parent.Child = new Child { Parent = Parent };
 
-            c = new C
+            Geometry = new Geometry
             {
-                D = new D1
-                {
-                    Id = 1
+                Shapes = new Shape[] {
+                    new Circle { Radius = 2 },
+                    new Square { Side = 3 }
                 }
             };
         }

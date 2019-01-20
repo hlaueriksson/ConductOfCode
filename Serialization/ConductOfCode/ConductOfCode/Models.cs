@@ -42,40 +42,36 @@ namespace ConductOfCode
         public Uri Uri { get; set; }
     }
 
-    // circular references
+    // Circular reference
 
-    public class A
+    public class Parent
     {
-        public int Id { get; set; }
-
-        public B B { get; set; }
+        public Child Child { get; set; }
     }
 
-    public class B
+    public class Child
     {
-        public string Ref { get; set; }
-
-        public A A { get; set; }
+        public Parent Parent { get; set; }
     }
 
-    // polymorphism
+    // Polymorphism
 
-    public class C
+    public class Geometry
     {
-        public D D { get; set; }
+        public Shape[] Shapes { get; set; }
     }
 
-    public abstract class D
+    public abstract class Shape
     {
     }
 
-    public class D1 : D
+    public class Circle : Shape
     {
-        public int Id { get; set; }
+        public int Radius { get; set; }
     }
 
-    public class D2 : D
+    public class Square : Shape
     {
-        public string Ref { get; set; }
+        public int Side { get; set; }
     }
 }

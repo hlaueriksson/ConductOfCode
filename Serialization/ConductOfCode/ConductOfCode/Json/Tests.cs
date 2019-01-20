@@ -50,7 +50,7 @@ namespace ConductOfCode.Json
         {
             Assert.Throws(
                 Is.TypeOf<JsonSerializationException>().And.Message.StartsWith("Self referencing loop detected"),
-                () => a.ToJson());
+                () => Parent.ToJson());
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace ConductOfCode.Json
         {
             Assert.Throws(
                 Is.TypeOf<JsonSerializationException>().And.Message.Contains("Type is an interface or abstract class and cannot be instantiated."),
-                () => c.ToJson().FromJson<C>());
+                () => Geometry.ToJson().FromJson<Geometry>());
         }
     }
 }

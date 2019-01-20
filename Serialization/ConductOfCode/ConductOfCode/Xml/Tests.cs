@@ -54,7 +54,7 @@ namespace ConductOfCode.Xml
         {
             Assert.Throws(
                 Is.TypeOf<InvalidOperationException>().And.InnerException.Message.StartsWith("A circular reference was detected while serializing an object"),
-                () => a.ToXml());
+                () => Parent.ToXml());
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace ConductOfCode.Xml
         {
             Assert.Throws(
                 Is.TypeOf<InvalidOperationException>().And.InnerException.Message.EndsWith("Use the XmlInclude or SoapInclude attribute to specify types that are not known statically."),
-                () => c.ToXml().FromXml<C>());
+                () => Geometry.ToXml().FromXml<Geometry>());
         }
     }
 }

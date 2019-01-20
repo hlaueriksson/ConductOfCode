@@ -45,10 +45,10 @@ namespace ConductOfCode.Yaml
         [Test]
         public void Serialize_and_Deserialize_circular_reference()
         {
-            var yaml = a.ToYaml();
+            var yaml = Parent.ToYaml();
             Console.WriteLine(yaml);
 
-            Assert.AreEqual(yaml, yaml.FromYaml<A>().ToYaml());
+            Assert.AreEqual(yaml, yaml.FromYaml<Parent>().ToYaml());
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace ConductOfCode.Yaml
         {
             Assert.Throws(
                 Is.TypeOf<YamlException>().And.InnerException.InnerException.Message.Contains("Cannot create an abstract class."),
-                () => c.ToYaml().FromYaml<C>());
+                () => Geometry.ToYaml().FromYaml<Geometry>());
         }
     }
 }
