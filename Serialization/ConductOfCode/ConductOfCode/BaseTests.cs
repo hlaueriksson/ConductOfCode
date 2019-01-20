@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
-using Ploeh.AutoFixture;
+﻿using AutoFixture;
+using NUnit.Framework;
 
 namespace ConductOfCode
 {
     public abstract class BaseTests
     {
-        protected Fixture Fixture;
+        protected IFixture Fixture;
         protected Subject Subject;
         protected Parent Parent;
         protected Geometry Geometry;

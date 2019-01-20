@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoFixture;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 
 namespace ConductOfCode.Json
 {

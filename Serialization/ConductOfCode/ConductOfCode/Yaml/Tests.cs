@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoFixture;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using YamlDotNet.Core;
 
 namespace ConductOfCode.Yaml
