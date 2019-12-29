@@ -17,3 +17,5 @@ The code for [Automocking and the Dependency Inversion Principle](https://conduc
 The code for [Secure and explore ASP.NET Core Web APIs](https://conductofcode.io/post/secure-and-explore-aspnet-core-web-apis/): [JWT](/JWT)
 
 The code for [Easy Approach to Requirements Syntax and the segue to Behavior Driven Development](https://conductofcode.io/post/easy-approach-to-requirements-syntax-and-the-segue-to-behavior-driven-development/): [EARS/ConductOfCode](/EARS/ConductOfCode)
+
+The code for [Introducing LoFuUnit](https://conductofcode.io/post/introducing-lofuunit/): [LoFuUnit/ConductOfCode](/LoFuUnit/ConductOfCode)
