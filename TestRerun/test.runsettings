@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <!--<NUnit>
+    <NumberOfTestWorkers>24</NumberOfTestWorkers>
+  </NUnit>-->
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <DEBUG>pw:api</DEBUG>
+    </EnvironmentVariables>
+  </RunConfiguration>
+  <!--<Playwright>
+    <BrowserName>chromium</BrowserName>
+    <ExpectTimeout>5000</ExpectTimeout>
+    <LaunchOptions>
+      <Headless>false</Headless>
+      <Channel>chrome</Channel>
+    </LaunchOptions>
+  </Playwright>-->
+</RunSettings>
