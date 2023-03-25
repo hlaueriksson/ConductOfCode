@@ -1,10 +1,10 @@
 <#PSScriptInfo
-.VERSION 1.0
+.VERSION 1.0.0
 .GUID 8115a829-e7dc-4cee-bc7e-f495471c29ae
-.AUTHOR henrik@laueriksson.com
+.AUTHOR Henrik Lau Eriksson
 .COMPANYNAME
 .COPYRIGHT
-.TAGS
+.TAGS .NET Test Rerun Retry
 .LICENSEURI
 .PROJECTURI https://github.com/hlaueriksson/ConductOfCode
 .ICONURI
