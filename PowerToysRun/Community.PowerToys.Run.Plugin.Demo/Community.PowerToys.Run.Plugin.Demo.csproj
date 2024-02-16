@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Platforms>x64;ARM64</Platforms>
+    <PlatformTarget>$(Platform)</PlatformTarget>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Platform)' == 'x64'">
+    <Reference Include="..\libs\x64\PowerToys.Common.UI.dll" />
+    <Reference Include="..\libs\x64\PowerToys.ManagedCommon.dll" />
+    <Reference Include="..\libs\x64\PowerToys.Settings.UI.Lib.dll" />
+    <Reference Include="..\libs\x64\Wox.Infrastructure.dll" />
+    <Reference Include="..\libs\x64\Wox.Plugin.dll" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Platform)' == 'ARM64'">
+    <Reference Include="..\libs\ARM64\PowerToys.Common.UI.dll" />
+    <Reference Include="..\libs\ARM64\PowerToys.ManagedCommon.dll" />
+    <Reference Include="..\libs\ARM64\PowerToys.Settings.UI.Lib.dll" />
+    <Reference Include="..\libs\ARM64\Wox.Infrastructure.dll" />
+    <Reference Include="..\libs\ARM64\Wox.Plugin.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="plugin.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

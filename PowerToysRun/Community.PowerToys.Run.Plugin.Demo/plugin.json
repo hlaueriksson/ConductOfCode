@@ -1,0 +1,14 @@
+{
+  "ID": "AE953C974C2241878F282EA18A7769E4",
+  "ActionKeyword": "demo",
+  "IsGlobal": false,
+  "Name": "Demo",
+  "Author": "hlaueriksson",
+  "Version": "1.0.0",
+  "Language": "csharp",
+  "Website": "https://github.com/hlaueriksson/ConductOfCode",
+  "ExecuteFileName": "Community.PowerToys.Run.Plugin.Demo.dll",
+  "IcoPathDark": "Images\\demo.dark.png",
+  "IcoPathLight": "Images\\demo.light.png",
+  "DynamicLoading": false
+}
